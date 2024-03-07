@@ -4,3 +4,26 @@ version: 1.0.0
 codeOwners:
   - '0x279fd0ee311e1AF60263A5c417d4872a7786F2d5'
 quorum: 1
+
+
+import random
+import string
+
+def generate_password(length=12):
+    # Define the character sets to use in the password
+    lowercase_letters = string.ascii_lowercase
+    uppercase_letters = string.ascii_uppercase
+    digits = string.digits
+    special_characters = '!@#$%^&*()_+-=[]{}|;:,.<>?'
+
+    # Combine all character sets
+    all_characters = lowercase_letters + uppercase_letters + digits + special_characters
+
+    # Generate a password using random characters from the combined set
+    password = ''.join(random.choice(all_characters) for _ in range(length))
+    return password
+
+if __name__ == "__main__":
+    # Generate a password of default length (12 characters)
+    password = generate_password()
+    print("Generated Password:", password)
